@@ -4,7 +4,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
     entry: {
-        bundle: path.resolve(__dirname, 'src/index.js'),
+        index: {import: './src/js/index.js', dependOn: 'shared'},
+        sum: {import: './src/js/sum.js', dependOn: 'shared'},
+        shared: 'lodash'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -37,6 +39,11 @@ module.exports = {
                 type: 'asset/resource',
             }
         ]
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({

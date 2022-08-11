@@ -18,6 +18,7 @@
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "lodash": "^4.17.21",
     "postcss-loader": "^7.0.1",
     "sass": "^1.54.4",
     "sass-loader": "^13.0.2",
