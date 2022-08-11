@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
-    mode: 'development',
     entry: {
         bundle: path.resolve(__dirname, 'src/index.js'),
     },
@@ -12,17 +11,6 @@ module.exports = {
         filename: "[name].[contenthash].js",
         clean: true,
         assetModuleFilename: "[name][ext]"
-    },
-    devtool: 'source-map',
-    devServer: {
-        static: {
-            directory: path.resolve(__dirname, 'dist')
-        },
-        port: 3000,
-        open: true,
-        hot: true,
-        compress: true,
-        historyApiFallback: true,
     },
     module: {
         rules: [
@@ -58,6 +46,6 @@ module.exports = {
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: process.env.STATS || "disabled"
-        })
+        }),
     ]
 }
